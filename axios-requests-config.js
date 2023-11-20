@@ -15,7 +15,7 @@ async function apiResponse(response) {
   console.log("--------Response end----------------");
 }
 
-async function getListOfUsers2(userBody) {
+async function registerUser(userBody) {
   const client = axiosConfig;
   return client
     .post("/api/register", userBody)
@@ -28,9 +28,9 @@ async function getListOfUsers2(userBody) {
 }
 
 async function runRequests() {
-  await getListOfUsers2(registerUserBody);
+  await registerUser(registerUserBody);
 }
 
 runRequests();
 
-module.exports = { getListOfUsers2 };
+module.exports = { registerUser };
