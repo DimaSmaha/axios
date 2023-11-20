@@ -18,7 +18,8 @@ async function getListOfUsers(endpoint, page) {
   return axios
     .get(endpoint, { params: { page: page } })
     .then(async (response) => {
-      return await apiResponse(response);
+      await apiResponse(response);
+      return response;
     })
     .catch((err) => {
       console.error(err);
@@ -29,7 +30,8 @@ async function createSingleUser(endpoint, body) {
   return axios
     .post(endpoint, body)
     .then(async (response) => {
-      return await apiResponse(response);
+      await apiResponse(response);
+      return response;
     })
     .catch((err) => {
       console.error(err);
@@ -51,7 +53,8 @@ async function partiallyUpdateTheUser(endpoint, body) {
   return axios
     .put(endpoint, body)
     .then(async (response) => {
-      return await apiResponse(response);
+      await apiResponse(response);
+      return response;
     })
     .catch((err) => {
       console.error(err);
@@ -62,7 +65,8 @@ async function deleteTheUser(endpoint) {
   return axios
     .delete(endpoint)
     .then(async (response) => {
-      return await apiResponse(response);
+      await apiResponse(response);
+      return response;
     })
     .catch((err) => {
       console.error(err);
