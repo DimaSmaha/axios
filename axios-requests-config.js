@@ -20,7 +20,8 @@ async function registerUser(userBody) {
   return client
     .post("/api/register", userBody)
     .then(async (response) => {
-      return await apiResponse(response);
+      await apiResponse(response);
+      return response;
     })
     .catch((err) => {
       console.error(err);

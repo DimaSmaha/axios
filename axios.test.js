@@ -1,8 +1,8 @@
-const getListOfUsers2 = require("./axios-requests-config");
+const { registerUser } = require("./axios-requests-config");
 
 const registerUserBody = { email: "eve.holt@reqres.in", password: "pistol" };
 
-test("the data is peanut butter", async () => {
-  const body = await getListOfUsers2(registerUserBody);
+test("get status", async () => {
+  const body = await registerUser(registerUserBody);
   expect(body.status).toBe(200);
 });
