@@ -7,11 +7,11 @@ const axiosConfig = axios.create({
 
 const registerUserBody = { email: "eve.holt@reqres.in", password: "pistol" };
 
-function apiResponse(response) {
+async function apiResponse(response) {
   console.log("--------Response start-------------------");
-  console.log(response.data);
-  console.log(response.status);
-  console.log(response.statusText);
+  console.log(await response.data);
+  console.log(await response.status);
+  console.log(await response.statusText);
   console.log("--------Response end----------------");
 }
 
@@ -19,8 +19,8 @@ async function getListOfUsers2(userBody) {
   const client = axiosConfig;
   return client
     .post("/api/register", userBody)
-    .then((response) => {
-      return apiResponse(response);
+    .then(async (response) => {
+      return await apiResponse(response);
     })
     .catch((err) => {
       console.error(err);
