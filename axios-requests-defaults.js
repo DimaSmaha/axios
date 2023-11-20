@@ -6,7 +6,7 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 
 const userBody = { name: "Dima", job: "QA" };
 
-function apiResponse(response) {
+async function apiResponse(response) {
   console.log("--------Response start-------------------");
   console.log(response.data);
   console.log(response.status);
@@ -17,8 +17,8 @@ function apiResponse(response) {
 async function getListOfUsers(endpoint, page) {
   return axios
     .get(endpoint, { params: { page: page } })
-    .then((response) => {
-      return apiResponse(response);
+    .then(async (response) => {
+      return await apiResponse(response);
     })
     .catch((err) => {
       console.error(err);
@@ -28,8 +28,8 @@ async function getListOfUsers(endpoint, page) {
 async function createSingleUser(endpoint, body) {
   return axios
     .post(endpoint, body)
-    .then((response) => {
-      return apiResponse(response);
+    .then(async (response) => {
+      return await apiResponse(response);
     })
     .catch((err) => {
       console.error(err);
@@ -50,8 +50,8 @@ async function fullyUpdateTheUser(endpoint, body) {
 async function partiallyUpdateTheUser(endpoint, body) {
   return axios
     .put(endpoint, body)
-    .then((response) => {
-      return apiResponse(response);
+    .then(async (response) => {
+      return await apiResponse(response);
     })
     .catch((err) => {
       console.error(err);
@@ -61,8 +61,8 @@ async function partiallyUpdateTheUser(endpoint, body) {
 async function deleteTheUser(endpoint) {
   return axios
     .delete(endpoint)
-    .then((response) => {
-      return apiResponse(response);
+    .then(async (response) => {
+      return await apiResponse(response);
     })
     .catch((err) => {
       console.error(err);
@@ -78,3 +78,5 @@ async function runRequests() {
 }
 
 runRequests();
+
+module.exports = { getListOfUsers };

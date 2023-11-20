@@ -32,3 +32,5 @@ async function runRequests() {
 }
 
 runRequests();
+
+module.exports = { getListOfUsers2 };
